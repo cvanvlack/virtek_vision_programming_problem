@@ -6,11 +6,12 @@ import 'package:virtek_vision/print_search.dart';
 Location? search(
     Building building, LocationsChecked locationsChecked, Location location) {
   final List<Location> locationsToSearch = [];
-  printSearch(building, locationsChecked);
+  print(location.toString());
   if (building.checkLocation(location) == 'i') {
     return location;
   }
   locationsChecked.setChecked(location);
+  printSearch(building, locationsChecked);
   final up = Location.up(location);
   final down = Location.down(location);
   final left = Location.left(location);
