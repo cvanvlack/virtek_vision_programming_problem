@@ -22,4 +22,9 @@ class Location {
 
   int get x => _x;
   int get y => _y;
+
+  @override
+  String toString() {
+    return 'x: $x,y: $y';
+  }
 }
