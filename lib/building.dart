@@ -17,30 +17,34 @@ class Building {
   //---i-
   Building.problem() {
     //Reframe the problem so that lower right corner is (0,0)
-    final row4 = ['-', '-', '-', '-', '-'];
-    final row3 = ['-', '-', '-', '-', '-'];
-    final row2 = ['-', '-', 'w', 'w', 'w'];
-    final row1 = ['-', '-', '-', 'i', '-'];
+    // final row4 = ['-', '-', '-', '-', '-'];
+    // final row3 = ['-', '-', '-', '-', '-'];
+    // final row2 = ['-', '-', 'w', 'w', 'w'];
+    // final row1 = ['-', '-', '-', 'i', '-'];
+
+    final row1 = ['-', '-', '-', '-'];
+    final row2 = ['-', '-', '-', '-'];
+    final row3 = ['-', 'w', '-', '-'];
+    final row4 = ['i', 'w', '-', '-'];
+    final row5 = ['-', 'w', '-', '-'];
 
     _buildingLayout.add(row1);
     _buildingLayout.add(row2);
     _buildingLayout.add(row3);
     _buildingLayout.add(row4);
+    _buildingLayout.add(row5);
     print('xDim:${xDim}');
     print('yDim:${yDim}');
     final intruderLocation = Location(3, 0);
     print(
         'Intruder is: ${_buildingLayout[intruderLocation.x][intruderLocation.y]} and is at location:(${intruderLocation.x},${intruderLocation.y})');
-    printLayout();
+    // printLayout();
   }
 
   void printLayout() {
     //Print so X=0, Y=0 is in lower left of window.
-
-    // for (var i = building.xDim - 1; i > 0; i--) {
-    for (var i = 0; i < xDim; i++) {
-      for (var j = 0; j < yDim; j++) {
-        // for (var j = building.yDim - 1; j > 0; j--) {
+    for (var j = yDim - 1; j >= 0; j--) {
+      for (var i = 0; i < xDim; i++) {
         stdout.write(_buildingLayout[i][j]);
       }
       stdout.write('\n');
