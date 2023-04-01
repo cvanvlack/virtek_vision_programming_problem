@@ -2,22 +2,20 @@ import 'package:virtek_vision/building.dart';
 import 'package:virtek_vision/location.dart';
 import 'package:virtek_vision/locations_checked.dart';
 
-void printSearch(Building building, LocationsChecked locationsChecked) {
-  String stringToPrint = '';
-  //Print so X=0, Y=0 is in lower left of window.
-  for (var i = 0; i < building.xDim; i++) {
-    // for (var i = building.xDim - 1; i > 0; i--) {
+import "dart:io";
 
-    for (var j = 0; j < building.yDim; j++) {
-      // for (var j = building.yDim - 1; j > 0; j--) {
+void printSearch(Building building, LocationsChecked locationsChecked) {
+  //Print so X=0, Y=0 is in lower left of window.
+  for (var j = building.yDim - 1; j >= 0; j--) {
+    for (var i = 0; i < building.xDim; i++) {
       final location = Location(i, j);
       if (locationsChecked.getChecked(location)) {
-        stringToPrint = stringToPrint + 'C';
+        stdout.write('C');
       } else {
-        stringToPrint = stringToPrint + building.checkLocation(location);
+        stdout.write(building.checkLocation(location));
       }
     }
-    stringToPrint = stringToPrint + '\n';
+    stdout.write('\n');
   }
-  // print(stringToPrint);
+  stdout.write('\n');
 }
